@@ -11,4 +11,6 @@ public class SpringbootBackendEcosystemApplication {
 		SpringApplication.run(SpringbootBackendEcosystemApplication.class, args);
 	}
 
+	
+
 }
