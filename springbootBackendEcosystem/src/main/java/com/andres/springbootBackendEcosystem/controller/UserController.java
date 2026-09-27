@@ -1,6 +1,7 @@
 package com.andres.springbootBackendEcosystem.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,12 +38,12 @@ public class UserController {
     }
 
     @PutMapping("/user/{user_id}")
-    public User updateUserById(@RequestBody User user, @PathVariable("user_id") Long userId) {
+    public User updateUserById(@RequestBody User user, @PathVariable("user_id") UUID userId) {
         return userService.updateUser(user, userId);
     }
 
     @DeleteMapping("/user/{user_id}")
-    public String deleteUserById(@PathVariable("user_id") Long userId) {
+    public String deleteUserById(@PathVariable("user_id") UUID userId) {
         userService.deleteUserById(userId);
         return "user deleted successfully";
     }

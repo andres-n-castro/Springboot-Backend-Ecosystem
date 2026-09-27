@@ -1,7 +1,10 @@
 package com.andres.springbootBackendEcosystem.model;
 
+import java.util.UUID;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -9,25 +12,21 @@ import jakarta.persistence.Table;
 @Table (name = "Users")
 public class User {
   @Id 
-  @GeneratedValue 
-  private Long id;
+  @GeneratedValue(strategy=GenerationType.UUID)
+  private UUID id;
   private String fullName;
   private String email;
   private String hashedPassword;
 
   protected User() {}
 
-  public User(String fullName, String email, String password) {
+  public User(String fullName, String email, String hashedPassword) {
     this.fullName = fullName;
     this.email = email;
-    hashedPassword = password;
+    this.hashedPassword = hashedPassword;
   }
 
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public Long getId() {
+  public UUID getId() {
     return id;
   }
 

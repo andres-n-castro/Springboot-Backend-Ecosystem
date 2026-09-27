@@ -2,6 +2,7 @@ package com.andres.springbootBackendEcosystem.services;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -31,7 +32,7 @@ public class UserServiceImpl implements UserService{
 
     //UPDATE service
     @Override 
-    public User updateUser(User user, Long userId) {
+    public User updateUser(User user, UUID userId) {
 
         User retrievedUser = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
         
@@ -49,7 +50,7 @@ public class UserServiceImpl implements UserService{
 
     //DELETE service
     @Override 
-    public void deleteUserById(Long userId) {
+    public void deleteUserById(UUID userId) {
         userRepository.deleteById(userId);
     }
 }
