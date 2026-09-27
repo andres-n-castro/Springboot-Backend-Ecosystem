@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 public class User {
   @Id 
   @GeneratedValue 
-  private int id;
+  private Long id;
   private String fullName;
   private String email;
   private String hashedPassword;
@@ -23,16 +23,32 @@ public class User {
     hashedPassword = password;
   }
 
-  public int getID() {
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public Long getId() {
     return id;
+  }
+
+  public void setFullName(String fullName) {
+    this.fullName = fullName;
   }
 
   public String getFullName() {
     return fullName;
   }
 
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
   public String getEmail() {
     return email;
+  }
+
+  public void setHashedPassword(String hashedPassword) {
+    this.hashedPassword = hashedPassword;
   }
 
   public String getHashedPassword() {
